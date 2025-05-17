@@ -1,0 +1,24 @@
+// Variáveis de controle do jogo
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// Posição inicial do guerreiro
+let guerreiroX = 50;
+let guerreiroY = 300;
+
+// Função para desenhar o guerreiro
+function desenharGuerreiro() {
+  ctx.fillStyle = 'blue'; // Cor do guerreiro
+  ctx.fillRect(guerreiroX, guerreiroY, 50, 100); // Corpo do guerreiro
+}
+
+// Função de animação
+function atualizar() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpa o canvas
+  desenharGuerreiro(); // Desenha o guerreiro
+
+  requestAnimationFrame(atualizar); // Chama a função de novo para criar um loop
+}
+
+// Inicia o jogo
+atualizar();
